@@ -21,9 +21,8 @@ jobs:
           node-version: "14"
       # Build the application
       - name: Build web-app
-        run: |
-          npm ci
-          npm run build
+        run: npm ci
+        run: npm run build
       # Deploy in gh-pages branch using an action
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

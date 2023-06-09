@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     # Where it is going to be executed
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04(ubuntu-latest)
     steps:
       # Action to execute a checkout of the project
       - uses: actions/checkout@v2

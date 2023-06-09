@@ -27,6 +27,7 @@ jobs:
       # Deploy in gh-pages branch using an action
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
           # The secret will be filled automatically by GitHub
           github_token: ${{ secrets.GITHUB_TOKEN }}

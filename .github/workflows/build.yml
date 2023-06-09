@@ -9,21 +9,23 @@ on:
 jobs:
   deploy:
     # Where it is going to be executed
-    runs-on: ubuntu-20.04(ubuntu-latest)
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: write
     steps:
       # Action to execute a checkout of the project
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       # Action to setup the project to use node
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: "14.x"
+          node-version: "14"
       # Build the application
       - name: Build web-app
         run: |
           npm ci
           npm run build
       # Deploy in gh-pages branch using an action
-      - name: Deploy to gh-pages
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           # The secret will be filled automatically by GitHub
